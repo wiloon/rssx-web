@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import FeedList from '../views/FeedList.vue'
+import FeedNewsList from '../views/FeedNewsList.vue'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'FeedList',
+    component: FeedList
+  },
+  {
+    path: '/feed-news-list',
+    name: 'FeedNewsList',
+    component: FeedNewsList
   },
   {
     path: '/about',

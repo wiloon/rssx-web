@@ -40,12 +40,6 @@
     <v-main>
       <router-view/>
     </v-main>
-    <v-footer
-      color="indigo"
-      app
-    >
-      <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -57,7 +51,7 @@ import { Component, Vue } from 'vue-property-decorator'
 })
 export default class App extends Vue {
   info = null
-  drawer = null
+  drawer = false
   env = ''
 
   mounted () {

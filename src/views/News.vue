@@ -1,33 +1,23 @@
 <template>
   <v-container
-    class="fill-height"
     fluid
   >
-    <v-row
-      align="center"
-      justify="center"
+    <v-card
+      class="mx-auto"
+      outlined
     >
-
-      <v-list flat>
-        <v-subheader>Feeds</v-subheader>
-        <v-list-item-group v-model="item" color="primary">
-          <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-          >
-            <v-list-item-icon>
-              <v-icon v-text="item.icon"></v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>
-                <router-link to="/feed-news-list">{{ item.Title }}</router-link>
-              </v-list-item-title>
-
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-row>
+      <v-list-item three-line>
+        <v-list-item-content>
+          <v-list-item-title class="headline mb-1">
+            <a v-bind:href="items.Url" target="_blank">
+              {{ items.Title }}
+            </a>
+          </v-list-item-title>
+          <v-list-item-subtitle> {{ items.PubDate }}</v-list-item-subtitle>
+          {{ items.Description }}
+        </v-list-item-content>
+      </v-list-item>
+    </v-card>
   </v-container>
 </template>
 
@@ -38,13 +28,16 @@ import Axios from 'axios'
 @Component({
   components: {}
 })
-export default class FeedList extends Vue {
-  item = 1
+export default class News extends Vue {
   items = new Map()
 
   mounted () {
+    console.log(this.$route.query.newsid)
+    console.log(this.$route.query.feedid)
     Axios
-      .get('/news')
+      .get('/news', {
+        params: { id: this.$route.query.newsid, feedId: this.$route.query.feedid }
+      })
       .then(
         response => {
           console.log(response.data)

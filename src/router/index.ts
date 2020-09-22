@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import FeedList from '../views/FeedList.vue'
 import FeedNewsList from '../views/FeedNewsList.vue'
+import News from '../views/News.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes: Array<RouteConfig> = [
     path: '/feed-news-list',
     name: 'FeedNewsList',
     component: FeedNewsList
+  },
+  {
+    path: '/news',
+    name: 'News',
+    component: News
   },
   {
     path: '/about',

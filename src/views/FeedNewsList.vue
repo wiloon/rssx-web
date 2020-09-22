@@ -8,7 +8,7 @@
       justify="center"
     >
       <v-list flat>
-        <v-subheader>Feeds</v-subheader>
+        <v-subheader>Feed News</v-subheader>
         <v-list-item-group v-model="item" color="primary">
           <v-list-item
             v-for="(item, i) in items"
@@ -18,7 +18,7 @@
               <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title v-text="item.Title"></v-list-item-title>
+              <router-link :to="{ path: 'news', query: { newsid: item.Id, feedid: item.FeedId }}"><v-list-item-title v-text="item.Title"></v-list-item-title></router-link>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
@@ -42,7 +42,7 @@ export default class FeedNewsList extends Vue {
     Axios
       .get('/news-list',
         {
-          params: { id: 1 }
+          params: { id: this.$route.query.feedid }
         })
       .then(
         response => {

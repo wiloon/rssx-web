@@ -20,7 +20,7 @@
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title>
-                <router-link to="/feed-news-list">{{ item.Title }}</router-link>
+                <router-link :to="{ path: 'feed-news-list', query: {feedid: item.Id } }">{{ item.Title }}</router-link>
               </v-list-item-title>
 
             </v-list-item-content>

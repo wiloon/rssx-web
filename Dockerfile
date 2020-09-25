@@ -1,6 +1,8 @@
 FROM vuejs/ci:latest AS build
 WORKDIR /workdir
 COPY . .
+RUN yarn global add vue
+RUN yarn global add @vue/cli
 RUN yarn build
 
 FROM nginx:1.18.0-alpine AS prod

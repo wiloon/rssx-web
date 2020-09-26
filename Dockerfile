@@ -1,6 +1,8 @@
 FROM vuejs/ci:latest AS build
 WORKDIR /workdir
 COPY . .
+
+RUN yarn config set registry https://registry.npm.taobao.org/
 RUN yarn global add vue
 RUN yarn global add @vue/cli
 RUN yarn global add @vue/cli-service

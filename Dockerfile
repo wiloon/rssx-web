@@ -4,6 +4,17 @@ COPY . .
 RUN yarn global add vue
 RUN yarn global add @vue/cli
 RUN yarn global add @vue/cli-service
+RUN yarn global add @vue/cli-plugin-babel
+RUN yarn global add @vue/cli-plugin-e2e-cypress
+RUN yarn global add @vue/cli-plugin-eslint
+RUN yarn global add @vue/cli-plugin-pwa
+RUN yarn global add @vue/cli-plugin-typescript
+RUN yarn global add @vue/cli-plugin-unit-jest
+RUN yarn global add vue-cli-plugin-vuetify
+RUN yarn add @vue/cli-plugin-babel
+RUN yarn add @mdi/font -D
+RUN yarn global add lerna
+RUN yarn global add typescript
 RUN yarn build
 
 FROM nginx:1.18.0-alpine AS prod

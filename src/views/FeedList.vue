@@ -1,34 +1,20 @@
 <template>
-  <v-container
-    class="fill-height"
-    fluid
+  <v-card
+    max-width="500"
+    class="mx-auto"
   >
-    <v-row
-      align="center"
-      justify="center"
-    >
-
-      <v-list flat>
-        <v-subheader>Feeds</v-subheader>
-        <v-list-item-group v-model="item" color="primary">
-          <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-          >
-            <v-list-item-icon>
-              <v-icon v-text="item.icon"></v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>
-                <router-link :to="{ path: 'feed-news-list', query: {feedid: item.Id } }">{{ item.Title }}</router-link>
-              </v-list-item-title>
-
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-row>
-  </v-container>
+    <v-list>
+      <v-list-item
+        v-for="item in items"
+        :key="item.Id"
+        v-on:click="feedClick"
+      >
+        <v-list-item-content v-bind:id="item.Id">
+          <v-list-item-title v-text="item.Title" v-bind:id="item.Id"></v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -41,6 +27,11 @@ import Axios from 'axios'
 export default class FeedList extends Vue {
   item = 1
   items = new Map()
+
+  feedClick (event: any): void {
+    console.log(event.target.id)
+    this.$router.push({ path: 'feed-news-list', query: { feedId: event.target.id } })
+  }
 
   mounted () {
     Axios

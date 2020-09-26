@@ -34,3 +34,14 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 buildah bud -f Dockerfile -t rssx .
+
+### deploy
+```bash
+podman run -d \
+--name rssx \
+-p 30090:80/tcp \
+-v /etc/localtime:/etc/localtime:ro \
+-v rssx-web-data:/var/log/nginx rssx:0.0.5
+
+
+```

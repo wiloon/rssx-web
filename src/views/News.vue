@@ -32,8 +32,6 @@ export default class News extends Vue {
   items = new Map()
 
   mounted () {
-    console.log(this.$route.query.newsid)
-    console.log(this.$route.query.feedid)
     Axios
       .get('/news', {
         params: { id: this.$route.query.newsid, feedId: this.$route.query.feedid }

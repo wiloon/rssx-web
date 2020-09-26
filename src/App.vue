@@ -30,8 +30,8 @@
 
     <v-app-bar
       app
-      color="indigo"
-      dark
+      dense
+      hide-on-scroll
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>RSSX</v-toolbar-title>

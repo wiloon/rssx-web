@@ -10,7 +10,7 @@
         v-on:click="newsClick"
       >
         <v-list-item-content v-bind:id="item.Id" v-bind:feedid="item.FeedId">
-          <v-list-item-title v-text="item.Title" v-bind:id="item.Id" v-bind:feedId="item.FeedId"></v-list-item-title>
+          <v-list-item-title v-text="item.Title" v-bind:id="item.Id" v-bind:feedId="item.FeedId" v-bind:class="{ read: item.ReadFlag }"></v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -49,3 +49,9 @@ export default class FeedNewsList extends Vue {
   }
 }
 </script>
+<style scoped lang="stylus">
+.read
+  color gray
+.unread
+  color black
+</style>

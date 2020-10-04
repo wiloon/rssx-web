@@ -2,6 +2,8 @@
   <v-container
     fluid
   >
+    <v-btn color="primary" v-on:click="previousNews">Previous</v-btn>
+    <v-btn color="primary" v-on:click="nextNews">Next</v-btn>
     <v-card
       class="mx-auto"
       outlined
@@ -29,17 +31,51 @@ import Axios from 'axios'
   components: {}
 })
 export default class News extends Vue {
+  feedId = ''
+  newsId = ''
+  nextNewsId = ''
+  previousNewsId = ''
   items = new Map()
 
-  mounted () {
+  previousNews (): void {
+    console.log('previous')
     Axios
-      .get('/news', {
-        params: { id: this.$route.query.newsid, feedId: this.$route.query.feedid }
+      .get('/previous-news', {
+        params: { newsIId: this.newsId, feedId: this.feedId }
       })
       .then(
         response => {
           console.log(response.data)
           this.items = response.data
+          this.newsId = response.data.Id
+          this.feedId = response.data.FeedId
+          this.nextNewsId = response.data.NextId
+        }
+      )
+  }
+
+  nextNews (): void {
+    console.log('next news: id: ' + this.nextNewsId)
+    this.loadOneNews(this.feedId, this.nextNewsId)
+  }
+
+  mounted () {
+    console.log(this.$route.query)
+    this.loadOneNews(this.$route.query.feedid as string, this.$route.query.newsid as string)
+  }
+
+  loadOneNews (feedId: string, newsId: string) {
+    Axios
+      .get('/news', {
+        params: { id: newsId, feedId: feedId }
+      })
+      .then(
+        response => {
+          console.log(response.data)
+          this.items = response.data
+          this.feedId = response.data.FeedId
+          this.nextNewsId = response.data.NextId
+          this.newsId = response.data.Id
         }
       )
   }

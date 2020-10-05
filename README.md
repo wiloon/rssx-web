@@ -42,6 +42,4 @@ podman run -d \
 -p 30090:80/tcp \
 -v /etc/localtime:/etc/localtime:ro \
 -v rssx-web-data:/var/log/nginx rssx:0.0.5
-
-
 ```

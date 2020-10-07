@@ -1,10 +1,5 @@
 # rssx-web
 
-## Project setup
-```
-yarn install
-```
-
 ### Compiles and hot-reloads for development
 ```
 yarn serve
@@ -41,5 +36,6 @@ podman run -d \
 --name rssx \
 -p 30090:80/tcp \
 -v /etc/localtime:/etc/localtime:ro \
--v rssx-web-data:/var/log/nginx rssx:0.0.5
+-v rssx-web-data:/var/log/nginx \
+registry.cn-qingdao.aliyuncs.com/pingd/rssx:0.0.8
 ```

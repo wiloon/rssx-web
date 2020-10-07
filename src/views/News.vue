@@ -41,7 +41,7 @@ export default class News extends Vue {
     console.log('previous')
     Axios
       .get('/previous-news', {
-        params: { newsIId: this.newsId, feedId: this.feedId }
+        params: { newsId: this.newsId, feedId: this.feedId }
       })
       .then(
         response => {

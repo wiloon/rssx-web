@@ -2,8 +2,15 @@
   <v-container
     fluid
   >
-    <v-btn color="primary" v-on:click="previousNews">Previous</v-btn>
-    <v-btn color="primary" v-on:click="nextNews">Next</v-btn>
+    <v-row no-gutters>
+      <v-col cols="9" sm="9">
+        <v-btn color="primary" v-on:click="previousNews">Previous</v-btn>
+      </v-col>
+      <v-col cols="3" sm="3">
+        <v-btn color="primary" v-on:click="nextNews">Next</v-btn>
+      </v-col>
+    </v-row>
+
     <v-card
       class="mx-auto"
       outlined
@@ -20,6 +27,14 @@
         </v-list-item-content>
       </v-list-item>
     </v-card>
+    <v-row no-gutters>
+      <v-col cols="9" sm="9">
+        <v-btn color="primary" v-on:click="previousNews">Previous</v-btn>
+      </v-col>
+      <v-col cols="3" sm="3">
+        <v-btn color="primary" v-on:click="nextNews">Next</v-btn>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

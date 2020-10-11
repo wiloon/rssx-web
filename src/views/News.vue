@@ -11,7 +11,7 @@
       <v-list-item three-line>
         <v-list-item-content>
           <v-list-item-title class="headline mb-1">
-            <a v-bind:href="items.Url" target="_blank">
+            <a v-bind:href="items.Url">
               {{ items.Title }}
             </a>
           </v-list-item-title>

@@ -3,13 +3,12 @@ module.exports = {
     // 一些基础配置
     name: 'RSSX',
     assetsVersion: '1.0.0',
-    themeColor: '#4DBA00',
-    msTileColor: '#000000',
+    themeColor: '#f5f5f5',
+    msTileColor: '#f5f5f5',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'debault',
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-      // 自定义的service worker文件的位置
       swSrc: 'src/service-worker.js'
     }
   },

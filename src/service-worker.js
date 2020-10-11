@@ -30,7 +30,7 @@ workbox.routing.registerRoute(
   })
 )
 workbox.routing.registerRoute(
-  /\.(css|js)/,
+  /.*\.(css|js).*/,
   new workbox.strategies.CacheFirst({
     cacheName: 'css_js-runtime-cache',
     plugins: [

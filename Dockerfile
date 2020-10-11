@@ -3,8 +3,8 @@ WORKDIR /workdir
 COPY . .
 
 RUN yarn config get registry
-RUN yarn config set registry https://registry.npm.taobao.org/
-RUN yarn config get registry
+# RUN yarn config set registry https://registry.npm.taobao.org/
+# RUN yarn config get registry
 RUN yarn global add vue
 RUN yarn global add @vue/cli
 RUN yarn global add @vue/cli-service

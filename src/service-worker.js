@@ -3,8 +3,8 @@ workbox.core.setCacheNameDetails({
   suffix: 'v1'
 })
 
-workbox.skipWaiting();
-workbox.clientsClaim();
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
 
 /*
 * vue-cli3.0通过workbox-webpack-plagin 来实现相关功能，我们需要加入

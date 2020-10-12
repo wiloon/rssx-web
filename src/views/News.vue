@@ -61,7 +61,7 @@ export default class News extends Vue {
       .then(
         response => {
           console.log(response.data)
-          this.$router.push({ path: 'news', query: { feedid: response.data.FeedId, newsid: response.data.Id } })
+          this.$router.replace({ path: 'news', query: { feedid: response.data.FeedId, newsid: response.data.Id } })
           this.items = response.data
           this.newsId = response.data.Id
           this.feedId = response.data.FeedId
@@ -72,7 +72,7 @@ export default class News extends Vue {
 
   nextNews (): void {
     console.log('next news: id: ' + this.nextNewsId)
-    this.$router.push({ path: 'news', query: { feedid: this.feedId, newsid: this.nextNewsId } })
+    this.$router.replace({ path: 'news', query: { feedid: this.feedId, newsid: this.nextNewsId } })
     this.loadOneNews(this.feedId, this.nextNewsId)
   }
 

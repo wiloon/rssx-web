@@ -17,10 +17,9 @@
     >
       <v-list-item three-line>
         <v-list-item-content>
-          <v-list-item-title class="headline mb-1">
-            <a v-bind:href="items.Url">
-              {{ items.Title }}
-            </a>
+          <v-progress-linear indeterminate :active="progressActive"></v-progress-linear>
+          <v-list-item-title class="headline mb-1" v-on:click="newsClick(items.Url)">
+            {{ items.Title }}
           </v-list-item-title>
           <v-list-item-subtitle> {{ items.PubDate }}</v-list-item-subtitle>
           {{ items.Description }}
@@ -51,6 +50,7 @@ export default class News extends Vue {
   nextNewsId = ''
   previousNewsId = ''
   items = new Map()
+  progressActive = false
 
   previousNews (): void {
     console.log('previous')
@@ -95,6 +95,12 @@ export default class News extends Vue {
           this.newsId = response.data.Id
         }
       )
+  }
+
+  newsClick (url: string): void {
+    console.log('click' + url)
+    this.progressActive = true
+    window.location.href = url
   }
 }
 </script>

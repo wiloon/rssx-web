@@ -32,10 +32,6 @@ buildah bud -f Dockerfile -t rssx .
 
 ### deploy
 ```bash
-podman run -d \
---name rssx \
--p 30090:80/tcp \
--v /etc/localtime:/etc/localtime:ro \
--v rssx-web-data:/var/log/nginx \
-registry.cn-qingdao.aliyuncs.com/pingd/rssx:0.0.8
+podman stop rssx && podman rm rssx && podman run -d --name rssx -p 30090:80/tcp -v /etc/localtime:/etc/localtime:ro -v rssx-web-data:/var/log/nginx registry.cn-qingdao.aliyuncs.com/pingd/rssx:1.0.7 && podman ps
+
 ```

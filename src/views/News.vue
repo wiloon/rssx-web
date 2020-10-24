@@ -17,7 +17,8 @@
     >
       <v-list-item three-line>
         <v-list-item-content>
-          <v-progress-linear indeterminate :active="progressActive" height="1"></v-progress-linear>
+          <div id="progress-div"><v-progress-linear indeterminate :active="progressActive" height="1"></v-progress-linear></div>
+
           <v-list-item-title class="headline mb-1" v-on:click="newsClick(items.Url)">
             {{ items.Title }}
           </v-list-item-title>
@@ -104,3 +105,7 @@ export default class News extends Vue {
   }
 }
 </script>
+<style scoped lang="stylus">
+#progress-div
+  height 1px
+</style>
